@@ -1,0 +1,27 @@
+{
+  "name": "react-native-file-select-mk",
+  "version": "1.0.1",
+  "description": "文件选择，对接android ios 原生",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/90Mark/react-native-file-select-mk.git"
+  },
+  "keywords": [
+    "react-native",
+    "fileManager",
+    "file",
+    "select",
+    "react-native-file",
+    "js"
+  ],
+  "author": "90Mark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/90Mark/react-native-file-select-mk/issues"
+  },
+  "homepage": "https://github.com/90Mark/react-native-file-select-mk#readme"
+}
