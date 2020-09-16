@@ -56,9 +56,9 @@ static id instance;
         [muArr addObject:urlStr];
     }
     if(urls.count==1){
-        [self callBack:@{@"type":@"url",@"url":muArr[0]}];
+        [self callBack:@{@"type":@"path",@"path":muArr[0]}];
     }else{
-        [self callBack:@{@"type":@"urls",@"urls":muArr}];
+        [self callBack:@{@"type":@"paths",@"paths":muArr}];
     }
 }
 - (void)documentPickerWasCancelled:(UIDocumentPickerViewController *)controller;{
@@ -67,7 +67,7 @@ static id instance;
 
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url{
     NSString * urlStr = [url absoluteString];
-    [self callBack:@{@"type":@"url",@"url":urlStr}];
+    [self callBack:@{@"type":@"path",@"path":urlStr}];
 }
 
 

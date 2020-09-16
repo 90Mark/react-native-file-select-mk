@@ -70,8 +70,8 @@ public class NSFileSelectModule extends ReactContextBaseJavaModule {
       String filePath = getRealPathFromURI(data.getData());
       if (callbackPromise != null && filePath != null) {
         WritableMap response = Arguments.createMap();
-        response.putString("type", "url");
-        response.putString("url", filePath);
+        response.putString("type", "path");
+        response.putString("path", filePath);
         callbackPromise.resolve(response);
       }
       callbackPromise = null;
