@@ -1,5 +1,15 @@
-var RNFileSelect = ReactNative.NativeModules.RNFileSelect;
+import { NativeModules } from 'react-native'
 
-function pringLog(msg){
-  RNFileSelect.log(msg)
+var { RNFileSelect } = NativeModules
+
+export default {
+  showFileList
+}
+
+function showFileList (callback) {
+  RNFileSelect.showFileList().then((res) => {
+    callback(res)
+  }).catch((err) => {
+    callback(null)
+  })
 }
