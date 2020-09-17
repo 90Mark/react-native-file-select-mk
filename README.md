@@ -3,6 +3,23 @@ github  https://github.com/90Mark/react-native-file-select-mk
 
 本文档，适用于ReactNative 项目
 
+ios 配置：
+
+
+    info.plist 中需要添加
+    
+    UIFileSharingEnabled 使iTunes分享你文件夹内的内容
+    LSSupportsOpeningDocumentsInPlace 本地文件的获取权限
+
+    这两个需要设置yes
+
+
+
+   
+
+
+
+
 使用方法:
 
 安装

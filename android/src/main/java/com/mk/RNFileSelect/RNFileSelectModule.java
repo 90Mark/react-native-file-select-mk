@@ -1,4 +1,4 @@
-package com.mk.NSFileSelect;
+package com.mk.RNFileSelect;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,12 +19,12 @@ import java.io.InputStream;
 
 import static androidx.core.app.ActivityCompat.startActivityForResult;
 
-public class NSFileSelectModule extends ReactContextBaseJavaModule {
+public class RNFileSelectModule extends ReactContextBaseJavaModule {
 
   private Promise callbackPromise;
   private final ReactApplicationContext mReactContext;
 
-  public NSFileSelectModule(ReactApplicationContext context) {
+  public RNFileSelectModule(ReactApplicationContext context) {
     super(context);
     mReactContext = context;
     getReactApplicationContext().addActivityEventListener(new ActivityEventListener());

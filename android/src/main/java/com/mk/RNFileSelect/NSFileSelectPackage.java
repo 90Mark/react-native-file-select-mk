@@ -1,4 +1,4 @@
-package com.mk.NSFileSelect;
+package com.mk.RNFileSelect;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,12 +10,12 @@ import com.facebook.react.bridge.JavaScriptModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 
-public class NSFileSelectPackage implements ReactPackage {
+public class RNFileSelectPackage implements ReactPackage {
 
   @Override
   public List<NativeModule> createNativeModules (ReactApplicationContext context) {
     List<NativeModule> modules = new ArrayList<>();
-    modules.add(new NSFileSelectModule(context));
+    modules.add(new RNFileSelectModule(context));
     return modules;
   }
 
