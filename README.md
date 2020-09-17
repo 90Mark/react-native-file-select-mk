@@ -3,6 +3,14 @@ github  https://github.com/90Mark/react-native-file-select-mk
 
 本文档，适用于ReactNative 项目
 
+效果图
+
+![Image text](https://github.com/90Mark/react-native-file-select-mk/blob/master/res/iOS_1.png)
+![Image text](https://github.com/90Mark/react-native-file-select-mk/blob/master/res/iOS_2.png)
+![Image text](https://github.com/90Mark/react-native-file-select-mk/blob/master/res/Android_1.png)
+![Image text](https://github.com/90Mark/react-native-file-select-mk/blob/master/res/Android_2.png)
+
+
 ios 配置：
 
 
