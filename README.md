@@ -22,6 +22,23 @@ ios 配置：
     这两个需要设置yes
 
 
+android 配置：
+   
+    rn项目index文件中，或需要用到此权限的地方
+
+    import { Platform, PermissionsAndroid } from 'react-native'
+
+    if (Platform.OS !== 'ios') {
+      PermissionsAndroid.requestMultiple([
+        PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
+      ])
+    }
+
+
+
+
+
 
    
 
