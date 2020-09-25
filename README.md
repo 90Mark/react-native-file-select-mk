@@ -68,7 +68,9 @@ android 配置：
       } else if (res.type === 'path') {
         // 选中单个文件
       } else if (res.type === 'paths') {
-          // 选中多个文件 看管理器支持情况目前采用默认的，只有会调用path
+        // 选中多个文件 看管理器支持情况目前采用默认的，只有会调用path
+      } else if (res.type === 'error') {
+        // 选择文件失败 
       }
     })
 

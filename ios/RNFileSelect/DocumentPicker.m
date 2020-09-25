@@ -52,8 +52,24 @@ static id instance;
 {
     NSMutableArray * muArr = [NSMutableArray arrayWithCapacity:1];
     for (NSURL * url in urls) {
-        NSString * urlStr = [url absoluteString];
-        [muArr addObject:urlStr];
+        BOOL canAccessingResource = [url startAccessingSecurityScopedResource];
+        if(canAccessingResource) {
+            NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] init];
+            NSError *error;
+            [fileCoordinator coordinateReadingItemAtURL:url options:0 error:&error byAccessor:^(NSURL *newURL) {
+                NSData *fileData = [NSData dataWithContentsOfURL:newURL];
+                NSString *fileName = [[[url absoluteString] componentsSeparatedByString:@"/"] lastObject];
+                NSString *desFileName = [NSTemporaryDirectory() stringByAppendingPathComponent:fileName];
+                [fileData writeToFile:desFileName atomically:YES];
+                [muArr addObject:desFileName];
+            }];
+            [url stopAccessingSecurityScopedResource];
+            if (error) {
+                [self callBack:@{@"type":@"error"}];
+            }
+        } else {
+            [self callBack:@{@"type":@"error"}];
+        }
     }
     if(urls.count==1){
         [self callBack:@{@"type":@"path",@"path":muArr[0]}];
