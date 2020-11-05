@@ -23,6 +23,7 @@ public class RNFileSelectModule extends ReactContextBaseJavaModule {
 
   private Promise callbackPromise;
   private final ReactApplicationContext mReactContext;
+  public static final int REQUEST_CODE_GET_FILE    = 20001;
 
   public RNFileSelectModule(ReactApplicationContext context) {
     super(context);
@@ -46,8 +47,8 @@ public class RNFileSelectModule extends ReactContextBaseJavaModule {
     intent.addCategory(Intent.CATEGORY_OPENABLE);
     this.callbackPromise = p;
     try {
-//      startActivityForResult(Intent.createChooser(intent, "选择文件"), REQUEST_CODE_GET_IMAGE);
-      startActivityForResult(getReactApplicationContext().getCurrentActivity(), intent, 0, null);
+//      startActivityForResult(Intent.createChooser(intent, "选择文件"), REQUEST_CODE_GET_FILE);
+      startActivityForResult(getReactApplicationContext().getCurrentActivity(), intent, REQUEST_CODE_GET_FILE, null);
     } catch (android.content.ActivityNotFoundException ex) {
       p.reject(null, "showfileList fail");
     }
@@ -66,15 +67,20 @@ public class RNFileSelectModule extends ReactContextBaseJavaModule {
         }
         return;
       }
+      switch (requestCode)
+      {
+        case REQUEST_CODE_GET_FILE:
+          String filePath = getRealPathFromURI(data.getData());
+          if (callbackPromise != null && filePath != null) {
+             WritableMap response = Arguments.createMap();
+               response.putString("type", "path");
+               response.putString("path", filePath);
+               callbackPromise.resolve(response);
+            }
+          callbackPromise = null;
+        break;
+       }
 
-      String filePath = getRealPathFromURI(data.getData());
-      if (callbackPromise != null && filePath != null) {
-        WritableMap response = Arguments.createMap();
-        response.putString("type", "path");
-        response.putString("path", filePath);
-        callbackPromise.resolve(response);
-      }
-      callbackPromise = null;
     }
 
     @Override
